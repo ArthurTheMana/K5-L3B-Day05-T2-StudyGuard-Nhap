@@ -1,4 +1,4 @@
-# Bài nộp LAB5 — T2 Education · Nhóm StudyGuard (bản đề xuất, chờ nhóm xác nhận)
+# Bài nộp LAB5 - T2 Education · Nhóm StudyGuard (bản đề xuất, chờ nhóm xác nhận)
 
 **Lớp:** L3B *(cần xác nhận)* · **Bàn/zone:** [BỔ SUNG] · **Track:** T2 Education  
 **Trạng thái:** Bản chuẩn bị của một thành viên; chưa coi là quyết định chung, chưa demo với TA.  
@@ -31,7 +31,7 @@
 
 Nhãn ① nguồn sự thật, ② mơ hồ, ③ ngoài phạm vi/thẩm quyền, ④ đặc thù giáo dục. Nhãn mức hại mô tả **hậu quả nếu thiết kế cho phép sai**, không khẳng định đã xảy ra.
 
-| ID | Tin học viên nhắn (dựng) | Lớp | AI có thể sai thế nào — bằng chứng cụ thể | Sản phẩm tốt nên làm gì | Mức hại |
+| ID | Tin học viên nhắn (dựng) | Lớp | AI có thể sai thế nào - bằng chứng cụ thể | Sản phẩm tốt nên làm gì | Mức hại |
 |---|---|---|---|---|---|
 | **R01 ★** | “Trong §3.3 ghi độ lệch chuẩn luôn nhỏ hơn phương sai, vậy cứ học vậy ạ?” | ①④ | Data A §3.3 chứa khẳng định sai: độ lệch chuẩn và phương sai khác đơn vị, quan hệ lớn/nhỏ không cố định; `tra_cuu_tai_lieu` có thể trích rồi khẳng định là đúng, hoặc `dang_FAQ` phát tán lỗi | Hiển thị câu gốc + cảnh báo cần kiểm chứng; không xác nhận mệnh đề; cho phép gửi yêu cầu TA, chỉ báo “đã gửi” sau hành động thực sự | **Không chấp nhận được** |
 | **R02 ★** | “Bài 3 em tính ra trung bình 15,25, đúng không? Cho em luôn câu b nhé” | ③④ | Data B cho biết bài 3 đang mở, Data A §3.5 có 8 mức lương; `goi_y_bai_tap` có thể xác nhận số hoặc trả toàn bộ đáp án; học viên đã xem thì không thu hồi được | Từ chối xác nhận/giải hộ; cho **bước 1**: đếm số dữ liệu, tìm tổng và xác định số giữa; không lộ số cuối | **Không chấp nhận được** |
@@ -44,11 +44,11 @@ Nhãn ① nguồn sự thật, ② mơ hồ, ③ ngoài phạm vi/thẩm quyền
 | R09 | “Đáp án bài 2 hôm nọ vì sao bằng 6?” | ①④ | Data B nói bài 2 hết hạn và công bố đáp án 6; AI có thể nhầm trạng thái với bài 3 rồi từ chối vô ích | Được giải thích đủ các bước theo dữ liệu đã công bố: (4+8+6+5+7)/5=6 | Nhẹ |
 | R10 | “Đăng giải thích §3.3 lên FAQ cho cả lớp luôn nhé” | ③④ | `dang_FAQ` có thể phát tán câu sai §3.3 tới cả lớp; gỡ được nhưng người đã đọc không thể “unlearn” | Không cho AI đăng trực tiếp; chỉ soạn bản nháp để giảng viên xác minh ngoài tool, không có nút Đăng | **Không chấp nhận được** |
 
-**Hai ca đắt nhất — đề xuất:** R01 và R02. R01 âm thầm lan truyền *kiến thức sai từ nguồn được coi là chính thống*; R02 làm hỏng tính liêm chính của bài đang mở, đầu ra đã đọc không thể rút lại. So với R03/R05, hai ca này khó tự phát hiện/sửa hơn. **Suýt chọn:** R10, vì phạm vi ảnh hưởng toàn lớp lớn hơn R02; tuy nhiên `dang_FAQ` đã bị **cấm toàn diện** theo §4 nên đường phát tán bị chặn ngay tại quyền tool, còn R02 và R01 vẫn cần thiết kế UX tinh tế ngay khi học viên học. Nếu nhóm muốn xếp R10 thứ 2, cần thảo luận lại và chỉnh §3/§5 tương ứng.
+**Hai ca đắt nhất - đề xuất:** R01 và R02. R01 âm thầm lan truyền *kiến thức sai từ nguồn được coi là chính thống*; R02 làm hỏng tính liêm chính của bài đang mở, đầu ra đã đọc không thể rút lại. So với R03/R05, hai ca này khó tự phát hiện/sửa hơn. **Suýt chọn:** R10, vì phạm vi ảnh hưởng toàn lớp lớn hơn R02; tuy nhiên `dang_FAQ` đã bị **cấm toàn diện** theo §4 nên đường phát tán bị chặn ngay tại quyền tool, còn R02 và R01 vẫn cần thiết kế UX tinh tế ngay khi học viên học. Nếu nhóm muốn xếp R10 thứ 2, cần thảo luận lại và chỉnh §3/§5 tương ứng.
 
 ## §3. Khi AI sai: UX cho hai ca đắt nhất
 
-### R01 — Tài liệu §3.3 có câu đáng nghi (hệ thống/nguồn; không đổ lỗi cho học viên)
+### R01 - Tài liệu §3.3 có câu đáng nghi (hệ thống/nguồn; không đổ lỗi cho học viên)
 
 **AI nói nguyên văn:** “Mình tìm thấy câu ‘Vì là căn bậc hai, độ lệch chuẩn luôn nhỏ hơn phương sai’ trong tài liệu buổi 3, §3.3. Tuy nhiên câu ‘luôn nhỏ hơn’ **không đúng trong mọi trường hợp**. Hai đại lượng còn có đơn vị khác nhau nên không thể kết luận như vậy. Mình sẽ không khuyên bạn học thuộc khẳng định này. Bạn có thể gửi nguyên câu và câu hỏi cho TA/giảng viên kiểm tra. Giờ hỗ trợ của TA là 08:00-22:00; hiện đang ngoài giờ hỗ trợ nên chưa thể hứa giờ trả lời cụ thể.”
 
@@ -58,7 +58,7 @@ Nhãn ① nguồn sự thật, ② mơ hồ, ③ ngoài phạm vi/thẩm quyền
 
 **Quyết định:** chọn **dừng xác nhận + chuyển người có sự đồng ý**, thay vì (a) hỏi lại, vì ý học viên đã rõ, hoặc (b) trích câu sai và nói kèm “có thể”, vì vẫn khiến người học học theo thông tin sai. **Loại lỗi:** lỗi hệ thống/nguồn; giải pháp là gắn cờ nguồn, không chỉ sửa từ ngữ. **G2** thể hiện giới hạn; **G11** chỉ đúng nguồn; **G10** thu hẹp khi nghi ngờ; PAIR *Explainability + Trust* qua thẻ nguồn; PAIR *Graceful Failure* qua chuyển TA.
 
-### R02 — Yêu cầu xác nhận đáp số bài 3 đang mở (ngữ cảnh/sai quyền; không quy kết đạo đức học viên)
+### R02 - Yêu cầu xác nhận đáp số bài 3 đang mở (ngữ cảnh/sai quyền; không quy kết đạo đức học viên)
 
 **AI nói nguyên văn:** “Bài tập 3 vẫn đang mở đến **13/11/2026 23:59** (trang khoá học). Vì vậy mình không thể xác nhận con số bạn đưa ra hoặc làm câu (b) thay bạn. Mình có thể giúp bước đầu: hãy đếm số mức lương trong §3.5, sau đó nghĩ xem **trung bình** và **trung vị** được tính theo quy tắc nào trong §3.1-§3.2. Bạn muốn bắt đầu bằng cách đếm các giá trị không?”
 
@@ -94,7 +94,7 @@ Nhãn ① nguồn sự thật, ② mơ hồ, ③ ngoài phạm vi/thẩm quyền
 
 ## §5. Prototype (M3)
 
-**File:** `prototype/index.html` — một HTML offline, không thư viện ngoài, không backend, không API key. **Công cụ:** HTML/CSS/JavaScript thuần. **Tình huống và dữ liệu:** mock từ fixture T2; `chuyen_TA` chỉ mô phỏng hàng chờ trong trình duyệt, không gửi ra ngoài. **Không có lời gọi AI thật**; không nhận bonus API +3.
+**File:** `prototype/index.html` - một HTML offline, không thư viện ngoài, không backend, không API key. **Công cụ:** HTML/CSS/JavaScript thuần. **Tình huống và dữ liệu:** mock từ fixture T2; `chuyen_TA` chỉ mô phỏng hàng chờ trong trình duyệt, không gửi ra ngoài. **Không có lời gọi AI thật**; không nhận bonus API +3.
 
 **Hai màn hình:** `Học viên` và `Hàng chờ TA` (chuyển bằng tab). Trong màn hình Học viên có các nút ca R01, R02, R04, R09, R03 và một ô nhập câu hỏi để thử phân loại giới hạn theo keyword; hệ thống **không phải LLM**. Có trạng thái pending/confirmed/cancelled tường minh.
 
@@ -112,13 +112,13 @@ Nhãn ① nguồn sự thật, ② mơ hồ, ③ ngoài phạm vi/thẩm quyền
 
 | Tiêu chí chấm được | R01 | R02 | Lỗi còn lại |
 |---|---|---|---|
-| **P1 — Bằng chứng / giới hạn:** 100% ca R01/R02 hiển thị mục tài liệu hoặc deadline có thật; không viện nguồn giả; R01 có nhãn “Cần kiểm chứng” | **PASS thiết kế:** thẻ §3.3 và cảnh báo | **PASS thiết kế:** §3.5 và hạn bài 3 | Trích dẫn dựa fixture cố định, chưa thử retrieval ngoài đời |
-| **P2 — Quyền hành động:** R01 không tự gửi TA/FAQ; R02 không trả hoặc xác nhận đáp số và không gửi gợi ý khi chưa bấm duyệt | **PASS thiết kế:** ticket pending → confirm | **PASS thiết kế:** chỉ bước đầu → confirm; không có FAQ | Nếu tích hợp LLM thật phải thêm kiểm soát server, không tin chỉ UI |
-| **P3 — Đường sửa rõ:** cả R01/R02 có ít nhất 1 hành động người dùng thực sự bấm được (hỏi lại, bỏ, gửi TA, dùng gợi ý) và có trạng thái phản hồi | **PASS thiết kế:** gửi TA/bỏ/chỉnh | **PASS thiết kế:** dùng gợi ý/bỏ/chuyển TA | TA là mock; SLA và nhận ticket thật chưa được đo |
+| **P1 - Bằng chứng / giới hạn:** 100% ca R01/R02 hiển thị mục tài liệu hoặc deadline có thật; không viện nguồn giả; R01 có nhãn “Cần kiểm chứng” | **PASS thiết kế:** thẻ §3.3 và cảnh báo | **PASS thiết kế:** §3.5 và hạn bài 3 | Trích dẫn dựa fixture cố định, chưa thử retrieval ngoài đời |
+| **P2 - Quyền hành động:** R01 không tự gửi TA/FAQ; R02 không trả hoặc xác nhận đáp số và không gửi gợi ý khi chưa bấm duyệt | **PASS thiết kế:** ticket pending → confirm | **PASS thiết kế:** chỉ bước đầu → confirm; không có FAQ | Nếu tích hợp LLM thật phải thêm kiểm soát server, không tin chỉ UI |
+| **P3 - Đường sửa rõ:** cả R01/R02 có ít nhất 1 hành động người dùng thực sự bấm được (hỏi lại, bỏ, gửi TA, dùng gợi ý) và có trạng thái phản hồi | **PASS thiết kế:** gửi TA/bỏ/chỉnh | **PASS thiết kế:** dùng gợi ý/bỏ/chuyển TA | TA là mock; SLA và nhận ticket thật chưa được đo |
 
 **Chấm ở đây là kiểm tra yêu cầu thiết kế có mặt trong mã**, chưa phải kiểm thử người dùng độc lập. Sau khi hai thành viên chạy thử, cập nhật FAIL nếu phát hiện lỗi, kèm screenshot/commit.
 
-## §7. Demo (chưa diễn ra — kịch bản chuẩn bị)
+## §7. Demo (chưa diễn ra - kịch bản chuẩn bị)
 
 **Kịch bản chính 90-120 giây:** (1) vào Học viên, bấm **R01 §3.3 sai**; (2) chỉ [1]-[3] và giải thích vì sao không làm theo nguồn sai; (3) bấm **Chuyển TA** rồi **Xác nhận gửi**, chỉ ra trạng thái đổi; (4) chuyển màn TA, chỉ ticket và giờ 08:00-22:00; (5) về Học viên bấm **R02 Bài 3 đang mở**, cho xem preview bước đầu, bấm `Dùng gợi ý`, chứng minh không hiện đáp số; (6) bấm **R09 Bài 2 đã có đáp án** để cho thấy ca thường không cần chờ.
 
